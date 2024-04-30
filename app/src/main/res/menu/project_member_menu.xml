@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/viewProfileMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="View Profile"
+        />
+    <item
+        android:id="@+id/managePermissionsMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Manage Permissions" >
+        <menu
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <item
+                android:id="@+id/permissionManagePermissionsMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Manage Permissions"
+                />
+            <item
+                android:id="@+id/permissionInviteMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Invite"
+                />
+            <item
+                android:id="@+id/permissionKickMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Kick" />
+            <item
+                android:id="@+id/permissionCreateTaskMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Create Task" />
+            <item
+                android:id="@+id/permissionEditTaskMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Edit Task" />
+            <item
+                android:id="@+id/permissionDeleteTaskMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Delete Task" />
+            <item
+                android:id="@+id/permissionReviewTaskMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Review Task" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/removeFromProjectMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Remove From Project" />
+</menu>

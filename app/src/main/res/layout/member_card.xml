@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corners"
+    android:backgroundTint="@color/dark_grey"
+    android:layout_marginVertical="10dp">
+
+    <TextView
+        android:id="@+id/memberNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Member name"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:fontFamily="@font/comfortaa_bold"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        />
+    <ImageView
+        android:id="@+id/memberMenuBtn"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:src="@drawable/dots_menu_svg"
+        android:layout_weight="1"
+        android:layout_marginVertical="10dp"
+        android:layout_marginRight="10dp"
+        app:tint="@color/white" />
+</LinearLayout>

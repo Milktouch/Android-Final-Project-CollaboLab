@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskFragment"
+    android:background="@color/app_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/taskFilterTodo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/light_blue"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-40dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingBottom="10dp"
+                android:paddingTop="45dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/statustodo" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taskFilterInProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/light_blue"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-40dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingBottom="10dp"
+                android:paddingTop="45dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/statusinprogress" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taskFilterOnHold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/light_blue"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-40dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingBottom="10dp"
+                android:paddingTop="45dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/statusonhold" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taskFilterPendingReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/light_blue"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-40dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingBottom="10dp"
+                android:paddingTop="45dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/statuspendingreview" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/taskFilterComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/light_blue"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-40dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingBottom="10dp"
+                android:paddingTop="45dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/statuscomplete" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/taskFilterNameLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/taskFilterNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filter Name:"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="15dp"
+            />
+        <View
+            android:layout_width="225dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginVertical="2dp"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="10dp">
+
+        <LinearLayout
+            android:id="@+id/taskList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/addTaskBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/light_blue">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:src="@drawable/plus_sign"
+            app:tint="@color/black"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Task"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

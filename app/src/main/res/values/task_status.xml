@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="task_status">
+        <item>Todo</item>
+        <item>In Progress</item>
+        <item>On Hold</item>
+        <item>Pending Review</item>
+        <item>Complete</item>
+    </array>
+</resources>

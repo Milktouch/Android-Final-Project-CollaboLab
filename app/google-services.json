@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "314764571160",
+    "project_id": "collabolab-e1e9f",
+    "storage_bucket": "collabolab-e1e9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314764571160:android:f2f8049e13682e9f90496d",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASLQIP_Jfw13QTQ3DnfVIBA-owB7C65R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314764571160:android:bf62af3909de5f1f90496d",
+        "android_client_info": {
+          "package_name": "com.collabolab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASLQIP_Jfw13QTQ3DnfVIBA-owB7C65R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

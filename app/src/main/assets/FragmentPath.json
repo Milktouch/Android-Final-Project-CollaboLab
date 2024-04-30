@@ -1,0 +1,30 @@
+{
+  "Home": {
+    "next": ["Calendar","Project","Settings"],
+    "prev": []
+  },
+  "Calendar": {
+    "next": [],
+    "prev": []
+  },
+    "Project": {
+        "next": ["ProjectView"],
+        "prev": []
+    },
+    "Settings": {
+        "next": [],
+        "prev": []
+    },
+    "ProjectView": {
+        "next": ["Chat","Task"],
+        "prev": ["Project"]
+    },
+    "Chat": {
+        "next": [],
+        "prev": ["ProjectView"]
+    },
+    "Task": {
+        "next": [],
+        "prev": ["ProjectView"]
+    }
+}

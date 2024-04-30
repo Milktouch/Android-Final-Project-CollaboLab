@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateProjectFragment"
+    android:orientation="vertical"
+    android:background="@color/app_color">
+
+
+    <EditText
+        android:id="@+id/projectNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_grey"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Project Name"
+        android:inputType="textMultiLine"
+        android:text=""
+        android:textColor="@color/light_grey"
+        android:textColorHint="@color/light_grey"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rounded_corners"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/projectDescET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:backgroundTint="@color/dark_grey"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_bold"
+        android:hint="Project Description"
+        android:inputType="textMultiLine"
+        android:text=""
+        android:textColor="@color/light_grey"
+        android:textColorHint="@color/light_grey"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corners"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/createProjectButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:background="@drawable/rounded_corners"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Create Project"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:backgroundTint="@color/status_blue_spinner"/>
+
+</LinearLayout>

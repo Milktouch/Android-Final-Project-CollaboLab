@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_purple">#20124D</color>
+    <color name="light_purple">#351C75</color>
+    <color name="light_purple_more">#AF95EF</color>
+    <color name="light_blue">#7BAAF6</color>
+    <color name="middle_blue">#59618e</color>
+    <color name="dark_blue">#0000FF</color>
+    <color name="teal_neon">#00FFFF</color>
+    <color name="light_orange">#FBAF3C</color>
+    <color name="light_grey">#999999</color>
+    <color name="dark_grey">#2B2A2A</color>
+    <color name="warn_red">#FF0000</color>
+    <color name="transparent">#00000000</color>
+    <color name="activeButton">#A2F385</color>
+    <color name="grey_purple">#675A87</color>
+    <color name="app_color">#0A1C5A</color>
+    <color name="nav_menu_color">#1B3098</color>
+    <color name="yellow">#CE8C08</color>
+    <color name="pink">#BF157B</color>
+    <color name="green">#0AAE4C</color>
+    <color name="unread_red">#C61F1F</color>
+    <color name="logo_bg_color">#0F0A37</color>
+    <color name="update_message_color">#a7acc9</color>
+    <color name="status_blue_spinner">#3b9de4</color>
+
+    <!-- task status color -->
+    <color name="status_todo">#FFF734</color>
+    <color name="status_in_progress">#3b9de4</color>
+    <color name="status_complete">#0AAE4C</color>
+    <color name="status_on_hold">#DC9B1B</color>
+    <color name="status_review">#DA198D</color>
+
+
+
+
+
+</resources>

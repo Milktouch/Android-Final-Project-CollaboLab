@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProjectFragment"
+    android:orientation="vertical"
+    android:background="@color/app_color"
+    >
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:id="@+id/projectCardList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp">
+
+            </LinearLayout>
+        </ScrollView>
+    <LinearLayout
+        android:id="@+id/createProjectButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/light_blue"
+        android:layout_margin="10dp">
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/plus_sign"
+            android:backgroundTint="@color/black"
+            android:scaleType="fitCenter"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa_bold"
+            android:gravity="center"
+            android:text="Create new project"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="60dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

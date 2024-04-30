@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileFragment"
+    android:orientation="vertical"
+    android:background="@color/app_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/status_blue_spinner"
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/helloTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:text="Hello,"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/status_blue_spinner"
+                    android:textSize="40sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/qrCodeIV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_margin="12dp"
+            android:layout_weight="0"
+            android:src="@drawable/qrcode" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/comfortaa_bold"
+                android:text="Account Details"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/editAccountBtn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="0"
+                android:src="@drawable/pencil" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:paddingHorizontal="15dp"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="175dp"
+                android:layout_height="1dp"
+                android:layout_marginVertical="2dp"
+                android:background="@color/light_grey" />
+
+            <EditText
+                android:id="@+id/usernameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:enabled="false"
+                android:fontFamily="@font/comfortaa_bold"
+                android:inputType="textAutoComplete"
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="5dp"
+                android:text="username"
+                android:textColor="@color/light_blue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:paddingHorizontal="15dp"
+                android:text="Phone Number"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="175dp"
+                android:layout_height="1dp"
+                android:layout_marginVertical="2dp"
+                android:background="@color/light_grey" />
+
+            <EditText
+                android:id="@+id/phoneNumberET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:enabled="false"
+                android:fontFamily="@font/comfortaa_bold"
+                android:inputType="phone"
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="5dp"
+                android:text="000000000"
+                android:textColor="@color/light_blue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:paddingHorizontal="15dp"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="175dp"
+                android:layout_height="1dp"
+                android:layout_marginVertical="2dp"
+                android:background="@color/light_grey" />
+
+            <TextView
+                android:id="@+id/emailTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:enabled="false"
+                android:fontFamily="@font/comfortaa_bold"
+                android:inputType="phone"
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="5dp"
+                android:text="example@gmail.com"
+                android:textColor="@color/light_blue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:paddingHorizontal="15dp"
+                android:text="User ID"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="175dp"
+                android:layout_height="1dp"
+                android:layout_marginVertical="2dp"
+                android:background="@color/light_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/dark_grey"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userIdTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/dark_grey"
+                    android:enabled="false"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:paddingHorizontal="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="tddywd9uhbdoj"
+                    android:textColor="@color/light_blue"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/copyIdBtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/copy" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:gravity="bottom">
+
+            <TextView
+                android:id="@+id/discardChangesBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/light_grey"
+                android:fontFamily="@font/comfortaa_bold"
+                android:maxWidth="60dp"
+                android:paddingBottom="3dp"
+                android:text="Discard"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/saveChangesBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/light_blue"
+                android:fontFamily="@font/comfortaa_bold"
+                android:paddingBottom="3dp"
+                android:text="Save"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logoutLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_bold"
+                android:text="Logout"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,19 @@
+{
+  "Login": {
+    "next": ["SharedLayout","Admin","Register"],
+    "prev": []
+  },
+    "SharedLayout": {
+        "next": ["HomeFragment", "ProjectFragment", "CalendarFragment","SettingsFragment"],
+        "prev": ["Login"]
+    },
+    "Admin": {
+        "next": [],
+        "prev": ["Login"]
+    },
+    "Register": {
+        "next": ["Login"],
+        "prev": ["Login"]
+    }
+
+}
