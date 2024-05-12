@@ -108,7 +108,11 @@ public class CalendarFragment extends CustomFragment {
             }
             Tasks.whenAllComplete(tasklist).addOnCompleteListener(t -> {
                 for (Task t2 : tasklist) {
-                    if (!t2.isSuccessful()) continue;
+                    if (!t2.isSuccessful()) {
+                        loadDialog.dismiss();
+                        Toast.makeText(getContext(), "Failed to load tasks", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     DocumentSnapshot doc = (DocumentSnapshot) t2.getResult();
                     WorkTask workTask = new WorkTask(doc);
                     workTaskList.add(workTask);

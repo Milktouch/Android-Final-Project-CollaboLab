@@ -130,7 +130,7 @@ public class InviteFragment extends CustomProjectFragment {
 
 
     public void queryUser(String text){
-        if (text.isEmpty()) {
+        if (text.isEmpty()||text.replaceAll(" ","").equals(" ")) {
             return;
         }
         FirebaseTools.firestore.collection("users").document(text.replaceAll(" ","")).get().addOnCompleteListener(task -> {

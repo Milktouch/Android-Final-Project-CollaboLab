@@ -1,0 +1,547 @@
+@startuml
+class TaskViewFragment {
+~ boolean newTask
+~ ImageView editBtn
+~ EditText taskTitle
+~ EditText taskNotes
+~ TextView taskDueDate
+~ AutoCompleteTextView taskAssignee
+~ TextView discardChangesBtn
+~ TextView logsBtn
+~ ArrayList<String> members
+~ ArrayList<String> memberId
+~ DateFormat formatter
+~ Date dueDate
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void setTaskInfo(WorkTask)
++ void saveTaskChanges()
++ void startEditing()
++ void stopEditing()
+}
+
+
+class TaskCombiner {
+- Thread thread
+- OnTasksComplete listener
+- Task[] tasks
++ void start()
++ void start(OnTasksComplete)
+}
+
+
+interface UpdateCallback {
+~ void onUpdatesReceived()
+}
+
+class Admin {
+- User selectedUser
+~ FirebaseFirestore db
+~ ArrayList<View> views
+~ ArrayList<User> viewsData
+~ LinearLayout layout
+~ EditText search
+- int margin
+- ArrayList<Pair<String,String>> userEmailPass
+# void onCreate(Bundle)
+- void initViews()
+- void createUserCard(DocumentSnapshot)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+}
+
+
+interface OnTasksComplete {
++ void onTasksComplete()
+}
+
+class PermissionSet {
++ {static} String PERMISSION_CREATE_TASK
++ {static} String PERMISSION_DELETE_TASK
++ {static} String PERMISSION_EDIT_TASK
++ {static} String PERMISSION_REVIEW_TASK
++ {static} String PERMISSION_INVITE
++ {static} String PERMISSION_MANAGE_PERMISSIONS
++ {static} String PERMISSION_KICK_MEMBER
++ {static} PermissionSet userPermissions
+- HashMap<String,Boolean> permissions
+# void setData(DocumentSnapshot)
+# HashMap<String,Object> toMap()
++ boolean hasPermission(String)
++ void setPermission(String,boolean)
++ void togglePermission(String)
+}
+
+
+abstract class FirestoreLoadable {
+- DocumentReference docRef
+- boolean loaded
+- String id
++ void load(OnDataLoadedListener)
++ Task load()
++ void updateRealtime(OnDataLoadedListener)
++ void updateRealtime()
++ DocumentReference getDocRef()
+# {abstract}void setData(DocumentSnapshot)
++ Task<Void> save()
+# {abstract}HashMap<String,Object> toMap()
++ boolean isLoaded()
++ String getId()
+}
+
+
+class LoadDialog {
++ void setMessage(String)
+}
+
+class Project {
+- boolean tasksLoaded
++ {static} Project currentProject
+- String name
+- String id
++ String description
++ User owner
++ ArrayList<WorkTask> tasks
++ ArrayList<ProjectMember> members
+# void setData(DocumentSnapshot)
+# HashMap<String,Object> toMap()
++ String getName()
++ String getDescription()
++ void loadTasks()
++ void loadTasks(OnTasksComplete)
++ boolean isTasksLoaded()
+}
+
+
+class SearchUser {
+- String email
+- String name
+- String userId
++ String getEmail()
++ String getName()
++ String getUserId()
+}
+
+
+class Update {
+- String title
+- String description
+- String viewType
+- String id
++ String getDescription()
++ String getViewType()
++ String getTitle()
++ String getId()
+}
+
+
+class InviteFragment {
+~ User selectedUser
+~ EditText collabuddySearch
+~ LinearLayout collabuddyList
+~ LinearLayout selectedCollabuddy
+~ TextView usernameTV
+~ ImageView scanQrIV
+~ TextView inviteBtn
+- ActivityResultLauncher<ScanOptions> barcodeLauncher
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void queryUser(String)
++ void displaySearchedUsers(ArrayList<HashMap<String,String>>)
++ void applyUserDetails(SearchUser)
++ void queryCloudFunction(String)
+}
+
+
+class TaskLogsFragment {
+~ LinearLayout logList
+~ TextView taskName
+~ DateFormat formatter
+~ int marginVertical
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void initLogs()
+- void addLog(DocumentSnapshot)
+}
+
+
+class User {
++ {static} String NULL_USER_ID
++ {static} User currentUser
++ String name
++ String email
++ String phone
++ ArrayList<Project> projects
+# void setData(DocumentSnapshot)
++ TaskCombiner loadProjects(OnTasksComplete)
+# HashMap<String,Object> toMap()
+}
+
+
+class ChatFragment {
+~ LinearLayout chatLayout
+~ CollectionReference chatRef
+~ Button sendBtn
+~ EditText messageET
++ void onCreate(Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void sendNewMessage(String)
++ void initChatMessages()
+- void createOwnChatMessage(String)
++ void createChatMessage(String,String)
+}
+
+
+class SharedLayout {
++ {static} SharedLayout parentActivity
+~ int fragmentId
+~ CustomFragment currentFragment
+~ FragmentContainerView fragmentContainer
+~ TextView titleText
+- FragmentManager fragmentManager
+~ ImageButton activeButton
++ ImageButton calendarBtn
+~ Stack<ImageButton> buttonStack
++ Stack<CustomFragment> fragmentStack
+# void onCreate(Bundle)
++ void refreshFragment()
++ void setActiveButton(ImageButton)
++ {static} void setTitle(String)
++ void sendFCMToken(String)
++ void setFragment(CustomFragment)
++ void setFragmentNoBackStack(CustomFragment)
++ void goBack()
++ void logout()
+- void subscribeToTopics()
+}
+
+
+abstract class CustomProjectFragment {
++ Project currentProject
++ void onViewCreated(View,Bundle)
+}
+
+
+class ProjectMember {
+- PermissionSet permissions
+- User userInfo
++ User getUserInfo()
++ PermissionSet getPermissions()
+}
+
+
+class UserUpdates {
+- {static} UserUpdates instance
+- UpdateCallback callback
+- ArrayList<Update> updates
++ {static} UserUpdates getInstance()
++ {static} void resetInstance()
++ {static} void startListening(User)
++ ArrayList<Update> getUpdates()
++ void setCallback(UpdateCallback)
++ void removeCallback()
+}
+
+
+class SplashScreen {
+- FirebaseAuth auth
+- FirebaseFirestore db
+- boolean signInFinished
+- boolean signInFailed
+# void onCreate(Bundle)
+- void signIn()
+- void requestNotificationPermission()
+}
+
+
+class ProjectViewFragment {
+~ TextView ownerTV
+~ ImageView chatBtn
+~ TextView tasksBtn
+~ User owner
+~ ArrayList<ProjectMember> members
+~ LinearLayout membersContainer
+~ LinearLayout inviteCollaboratorBtn
+~ ProjectMember selectedMember
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void addMemberCard(User)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void modifyMenuItems(ContextMenu,PermissionSet)
+- void removeFromProject(ProjectMember)
+}
+
+
+class WorkTask {
++ {static} WorkTask currentTask
++ User assignedTo
++ String name
++ String description
++ String status
++ Timestamp deadline
++ Timestamp timestamp
+# void setData(DocumentSnapshot)
+# HashMap<String,Object> toMap()
++ void logChanges(HashMap<String,Pair<String,String>>,User)
++ void logChanges(String,User)
+}
+
+
+class GeneralUtilities {
++ {static} int dpToPixelsInt(float,Resources)
++ {static} float dpToPixelsFloat(float,Resources)
++ {static} Bitmap generateQrCode(String)
++ {static} void copyToClipboard(Context,String,String)
+}
+
+class FirebaseTools {
++ {static} FirebaseFirestore firestore
++ {static} FirebaseFunctions functions
++ {static} void init()
+}
+
+
+class ViewProfileFragment {
+- User user
+~ TextView usernameTV
+~ ImageView qrBtn
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void applyUserDetails()
+}
+
+
+class Register {
+~ TextView warning
+~ EditText emailET
+~ EditText phoneET
+~ EditText passwordET
+~ EditText confirmPasswordET
+~ EditText nameET
+~ FirebaseAuth auth
+# void onCreate(Bundle)
++ void signUp(String,String,String,String,String)
+}
+
+
+class AlarmNotificationReceiver {
++ {static} String notificationChannelId
++ {static} String notificationChannelName
++ {static} String notificationChannelDescription
++ void onReceive(Context,Intent)
+}
+
+
+class NotificationService {
+- {static} NotificationService instance
+- {static} String fcmToken
++ {static} NotificationService getInstance()
++ {static} String getToken()
++ void onNewToken(String)
++ void sendRegistrationToServer(String)
++ void onCreate()
+}
+
+
+interface OnDataLoadedListener {
++ void onDataLoaded(T,boolean)
+}
+
+abstract class CustomFragment {
+# View container
+# SharedLayout parent
++ void onViewCreated(View,Bundle)
++ {abstract}ImageButton getActiveButton()
++ {abstract}String getTitle()
+}
+
+
+class Login {
+~ EditText identifierET
+~ EditText passwordET
+~ CheckBox rememberMe
+~ FirebaseAuth auth
+# void onCreate(Bundle)
++ void signIn(String,String)
+}
+
+
+class UserProfileFragment {
+~ String phoneRegex
+~ ImageView qrCodeBtn
+~ TextView saveBtn
+~ EditText nameET
+~ TextView emailTV
+~ LinearLayout logoutLayout
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void applyUserInfo()
+- void enableEdit()
+- void disableEdit()
+}
+
+
+class HomeFragment {
+- FirebaseFirestore db
+~ float[] marginsPerNumber
+- LinearLayout updatesLayout
+- TextView noUpdatesTV
+- TextView notificationsTV
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void onResume()
++ void onStop()
++ void createUpdateCard(Update)
++ void setUpdates(List<Update>)
+}
+
+
+class ProjectFragment {
+~ LinearLayout projectList
+~ LinearLayout createProjectButton
++ void onCreate(Bundle)
++ void onViewCreated(View,Bundle)
+- void initProjectInviteList()
++ ImageButton getActiveButton()
++ String getTitle()
+- void addProjectCard(Project)
+- void initProjectList()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void deleteProjectDialog(Project)
+- void leaveProjectDialog(Project)
+- void createProjectInviteCard(String,String,String)
+}
+
+
+class TaskFragment {
+~ LinearLayout todoFilter
+~ LinearLayout inProgressFilter
+~ LinearLayout onHoldFilter
+~ LinearLayout pendingReviewFilter
+~ LinearLayout completedFilter
+~ ArrayList<WorkTask> tasks
+~ ArrayList<View> taskViews
+~ LinearLayout currentFilterLL
+~ String currentFilter
+~ int marginUnselected
+~ int marginSelected
+~ LinearLayout taskContainer
+~ LinearLayout AddTaskBtn
+~ LinearLayout filterName
+~ TextView filterNameTV
+~ int margins
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void setFilter(LinearLayout)
++ void unselectImageFilter(LinearLayout)
++ void selectImageFilter(LinearLayout)
++ void filterTasks(String)
++ void initTasks()
++ View createTaskView(WorkTask)
++ void updateTaskView(WorkTask,View)
+}
+
+
+abstract class CustomTaskFragment {
++ WorkTask currentTask
++ void onViewCreated(View,Bundle)
+}
+
+
+class CalendarFragment {
+~ AlarmManager alarmManager
+~ LinearLayout taskList
+~ TextView noTasks
+~ DateFormat formatter
+~ ArrayList<WorkTask> workTaskList
+~ int margin
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void setAlarm(String,String,long)
+- void createSmallTaskCard(WorkTask)
+- void pickReminderTime(WorkTask)
+- void sortTasks()
+- void requestNotificationPermission()
+}
+
+
+class CreateProjectFragment {
+~ EditText projectName
+~ EditText projectDescription
+~ Button createProjectButton
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+}
+
+
+class TaskStatus {
++ {static} String TO_DO
++ {static} String IN_PROGRESS
++ {static} String ON_HOLD
++ {static} String PENDING_REVIEW
++ {static} String COMPLETE
+}
+
+
+
+CustomTaskFragment <|-- TaskViewFragment
+AppCompatActivity <|-- Admin
+FirestoreLoadable <|-- PermissionSet
+Dialog <|-- LoadDialog
+FirestoreLoadable <|-- Project
+CustomProjectFragment <|-- InviteFragment
+CustomTaskFragment <|-- TaskLogsFragment
+FirestoreLoadable <|-- User
+CustomProjectFragment <|-- ChatFragment
+AppCompatActivity <|-- SharedLayout
+CustomFragment <|-- CustomProjectFragment
+AppCompatActivity <|-- SplashScreen
+CustomProjectFragment <|-- ProjectViewFragment
+FirestoreLoadable <|-- WorkTask
+CustomFragment <|-- ViewProfileFragment
+AppCompatActivity <|-- Register
+BroadcastReceiver <|-- AlarmNotificationReceiver
+FirebaseMessagingService <|-- NotificationService
+Fragment <|-- CustomFragment
+AppCompatActivity <|-- Login
+CustomFragment <|-- UserProfileFragment
+CustomFragment <|-- HomeFragment
+CustomFragment <|-- ProjectFragment
+CustomProjectFragment <|-- TaskFragment
+CustomProjectFragment <|-- CustomTaskFragment
+CustomFragment <|-- CalendarFragment
+CustomFragment <|-- CreateProjectFragment
+@enduml

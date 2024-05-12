@@ -110,11 +110,12 @@ public class ChatFragment extends CustomProjectFragment {
             if (error != null) {
                 return;
             }
-            boolean newMessages = false;
+            if (SharedLayout.parentActivity.currentFragment != this){
+                return;
+            }
             for (int i = 0; i < value.getDocumentChanges().size(); i++) {
                 String author = value.getDocumentChanges().get(i).getDocument().getString("from");
                 String userId = value.getDocumentChanges().get(i).getDocument().getString("userId");
-                String currentUserId = User.currentUser.getId();
                 String message = value.getDocumentChanges().get(i).getDocument().getString("text");
                 if (userId.equals(User.currentUser.getId())){
                     createOwnChatMessage(message);

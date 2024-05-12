@@ -1,0 +1,309 @@
+@startuml
+class com.collabolab.TaskViewFragment {
+~ boolean newTask
+~ ImageView editBtn
+~ EditText taskTitle
+~ EditText taskNotes
+~ TextView taskDueDate
+~ AutoCompleteTextView taskAssignee
+~ TextView discardChangesBtn
+~ TextView logsBtn
+~ ArrayList<String> members
+~ ArrayList<String> memberId
+~ DateFormat formatter
+~ Date dueDate
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void setTaskInfo(WorkTask)
++ void saveTaskChanges()
++ void startEditing()
++ void stopEditing()
+}
+
+
+class com.collabolab.Admin {
+- User selectedUser
+~ FirebaseFirestore db
+~ ArrayList<View> views
+~ ArrayList<User> viewsData
+~ LinearLayout layout
+~ EditText search
+- int margin
+- ArrayList<Pair<String,String>> userEmailPass
+# void onCreate(Bundle)
+- void initViews()
+- void createUserCard(DocumentSnapshot)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+}
+
+
+class com.collabolab.InviteFragment {
+~ User selectedUser
+~ EditText collabuddySearch
+~ LinearLayout collabuddyList
+~ LinearLayout selectedCollabuddy
+~ TextView usernameTV
+~ ImageView scanQrIV
+~ TextView inviteBtn
+- ActivityResultLauncher<ScanOptions> barcodeLauncher
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void queryUser(String)
++ void displaySearchedUsers(ArrayList<HashMap<String,String>>)
++ void applyUserDetails(SearchUser)
++ void queryCloudFunction(String)
+}
+
+
+class com.collabolab.TaskLogsFragment {
+~ LinearLayout logList
+~ TextView taskName
+~ DateFormat formatter
+~ int marginVertical
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void initLogs()
+- void addLog(DocumentSnapshot)
+}
+
+
+
+class com.collabolab.ChatFragment {
+~ LinearLayout chatLayout
+~ CollectionReference chatRef
+~ Button sendBtn
+~ EditText messageET
++ void onCreate(Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void sendNewMessage(String)
++ void initChatMessages()
+- void createOwnChatMessage(String)
++ void createChatMessage(String,String)
+}
+
+
+class com.collabolab.SharedLayout {
++ {static} SharedLayout parentActivity
+~ int fragmentId
+~ CustomFragment currentFragment
+~ FragmentContainerView fragmentContainer
+~ TextView titleText
+- FragmentManager fragmentManager
+~ ImageButton activeButton
++ ImageButton calendarBtn
+~ Stack<ImageButton> buttonStack
++ Stack<CustomFragment> fragmentStack
+# void onCreate(Bundle)
++ void refreshFragment()
++ void setActiveButton(ImageButton)
++ {static} void setTitle(String)
++ void sendFCMToken(String)
++ void setFragment(CustomFragment)
++ void setFragmentNoBackStack(CustomFragment)
++ void goBack()
++ void logout()
+- void subscribeToTopics()
+}
+
+
+abstract class com.collabolab.Fragments.CustomProjectFragment {
++ Project currentProject
++ void onViewCreated(View,Bundle)
+}
+
+
+class com.collabolab.ProjectViewFragment {
+~ TextView ownerTV
+~ ImageView chatBtn
+~ TextView tasksBtn
+~ User owner
+~ ArrayList<ProjectMember> members
+~ LinearLayout membersContainer
+~ LinearLayout inviteCollaboratorBtn
+~ ProjectMember selectedMember
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void addMemberCard(User)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void modifyMenuItems(ContextMenu,PermissionSet)
+- void removeFromProject(ProjectMember)
+}
+
+
+class com.collabolab.ViewProfileFragment {
+- User user
+~ TextView usernameTV
+~ ImageView qrBtn
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void applyUserDetails()
+}
+
+abstract class com.collabolab.Fragments.CustomFragment {
+# View container
+# SharedLayout parent
++ void onViewCreated(View,Bundle)
++ {abstract}ImageButton getActiveButton()
++ {abstract}String getTitle()
+}
+
+
+class com.collabolab.UserProfileFragment {
+~ String phoneRegex
+~ ImageView qrCodeBtn
+~ TextView saveBtn
+~ EditText nameET
+~ TextView emailTV
+~ LinearLayout logoutLayout
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void applyUserInfo()
+- void enableEdit()
+- void disableEdit()
+}
+
+
+class com.collabolab.HomeFragment {
+- FirebaseFirestore db
+~ float[] marginsPerNumber
+- LinearLayout updatesLayout
+- TextView noUpdatesTV
+- TextView notificationsTV
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void onResume()
++ void onStop()
++ void createUpdateCard(Update)
++ void setUpdates(List<Update>)
+}
+
+
+class com.collabolab.ProjectFragment {
+~ LinearLayout projectList
+~ LinearLayout createProjectButton
++ void onCreate(Bundle)
++ void onViewCreated(View,Bundle)
+- void initProjectInviteList()
++ ImageButton getActiveButton()
++ String getTitle()
+- void addProjectCard(Project)
+- void initProjectList()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void deleteProjectDialog(Project)
+- void leaveProjectDialog(Project)
+- void createProjectInviteCard(String,String,String)
+}
+
+
+class com.collabolab.TaskFragment {
+~ LinearLayout todoFilter
+~ LinearLayout inProgressFilter
+~ LinearLayout onHoldFilter
+~ LinearLayout pendingReviewFilter
+~ LinearLayout completedFilter
+~ ArrayList<WorkTask> tasks
+~ ArrayList<View> taskViews
+~ LinearLayout currentFilterLL
+~ String currentFilter
+~ int marginUnselected
+~ int marginSelected
+~ LinearLayout taskContainer
+~ LinearLayout AddTaskBtn
+~ LinearLayout filterName
+~ TextView filterNameTV
+~ int margins
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
++ void setFilter(LinearLayout)
++ void unselectImageFilter(LinearLayout)
++ void selectImageFilter(LinearLayout)
++ void filterTasks(String)
++ void initTasks()
++ View createTaskView(WorkTask)
++ void updateTaskView(WorkTask,View)
+}
+
+
+abstract class com.collabolab.Fragments.CustomTaskFragment {
++ WorkTask currentTask
++ void onViewCreated(View,Bundle)
+}
+
+
+class com.collabolab.CalendarFragment {
+~ AlarmManager alarmManager
+~ LinearLayout taskList
+~ TextView noTasks
+~ DateFormat formatter
+~ ArrayList<WorkTask> workTaskList
+~ int margin
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+- void setAlarm(String,String,long)
+- void createSmallTaskCard(WorkTask)
+- void pickReminderTime(WorkTask)
+- void sortTasks()
+- void requestNotificationPermission()
+}
+
+
+class com.collabolab.CreateProjectFragment {
+~ EditText projectName
+~ EditText projectDescription
+~ Button createProjectButton
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
++ ImageButton getActiveButton()
++ String getTitle()
+}
+
+
+
+
+com.collabolab.Fragments.CustomTaskFragment <|-- com.collabolab.TaskViewFragment
+com.collabolab.Fragments.CustomProjectFragment <|-- com.collabolab.InviteFragment
+com.collabolab.Fragments.CustomTaskFragment <|-- com.collabolab.TaskLogsFragment
+com.collabolab.Fragments.CustomProjectFragment <|-- com.collabolab.ChatFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.Fragments.CustomProjectFragment
+com.collabolab.Fragments.CustomProjectFragment <|-- com.collabolab.ProjectViewFragment
+androidx.fragment.app.Fragment <|-- com.collabolab.Fragments.CustomFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.UserProfileFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.HomeFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.ProjectFragment
+com.collabolab.Fragments.CustomProjectFragment <|-- com.collabolab.TaskFragment
+com.collabolab.Fragments.CustomProjectFragment <|-- com.collabolab.Fragments.CustomTaskFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.CalendarFragment
+com.collabolab.Fragments.CustomFragment <|-- com.collabolab.CreateProjectFragment
+@enduml
